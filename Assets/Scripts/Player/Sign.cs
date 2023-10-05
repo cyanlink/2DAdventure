@@ -26,7 +26,7 @@ public class Sign : MonoBehaviour
     }
     private void OnEnable()
     {
-        InputSystem.onActionChange += OnActionChnage;
+        InputSystem.onActionChange += OnActionChange;
         playerInput.Gameplay.Confirm.started += OnConfirm;
     }
     private void OnDisable()
@@ -54,7 +54,7 @@ public class Sign : MonoBehaviour
     /// </summary>
     /// <param name="obj"></param>
     /// <param name="actionChange"></param>
-    private void OnActionChnage(object obj, InputActionChange actionChange)
+    private void OnActionChange(object obj, InputActionChange actionChange)
     {
         if (actionChange == InputActionChange.ActionStarted)
         {
