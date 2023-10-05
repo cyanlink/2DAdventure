@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(CapsuleCollider2D))]
 public class PhysicsCheck : MonoBehaviour
 {
     private PlayerController playerController;
-    [Header("组件")]
-    public CapsuleCollider2D coll;
-    public Rigidbody2D rb;
+
+    private CapsuleCollider2D coll;
+    private Rigidbody2D rb;
     [Header("检测参数")]
     public bool manual;
     public bool isPlayer;
