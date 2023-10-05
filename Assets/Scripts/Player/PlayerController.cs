@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     public VoidEventSO backToMenuEvent;
 
     [Header("组件")]
-    public PlayerInputControl inputControl;
+    public InputRouter inputRouter;
+    private PlayerInputControl inputControl;
     public Vector2 inputDirection;
     public PhysicsCheck physicsCheck;
     public SpriteRenderer spriteRenderer;
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        inputControl = new PlayerInputControl();
+        inputControl = inputRouter.InputControls;
         physicsCheck = GetComponent<PhysicsCheck>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         coll = GetComponent<CapsuleCollider2D>();
@@ -63,33 +64,12 @@ public class PlayerController : MonoBehaviour
         originalOffset = coll.offset;
         originalSize = coll.size;
 
-        inputControl.Gameplay.Jump.started += Jump;
-
-        #region 强制走路
-        runSpeed = speed;
-        inputControl.Gameplay.MoveButton.performed += ctx =>
-        {
-            if (physicsCheck.isGround)
-                speed = walkSpeed;
-        };
-        inputControl.Gameplay.MoveButton.canceled += ctx =>
-        {
-            if (physicsCheck.isGround)
-                speed = runSpeed;
-        };
-        #endregion
-        //攻击
-        inputControl.Gameplay.Attack.started += PlayerAttack;
-        //滑铲
-        inputControl.Gameplay.Slide.started += Slide;
-        inputControl.Enable();
-
     }
-
-
 
     private void OnEnable()
     {
+        RegisterInputActions();
+   
         sceneLoadEvent.LoadRequestEvent += OnLoadEvent;
         afterSceneLoadedEvent.OnEventRaised += OnAfterLoadedEvent;
         loadDataEvent.OnEventRaised += OnLoadDataEvent;
@@ -103,6 +83,11 @@ public class PlayerController : MonoBehaviour
         afterSceneLoadedEvent.OnEventRaised -= OnAfterLoadedEvent;
         loadDataEvent.OnEventRaised -= OnLoadDataEvent;
         backToMenuEvent.OnEventRaised -= OnLoadDataEvent;
+
+    }
+
+    private void Start()
+    {
 
     }
 
@@ -124,7 +109,30 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         //Debug.Log(other.name);
+    }
 
+    private void RegisterInputActions()
+    {
+        inputControl.Gameplay.Jump.started += Jump;
+
+        #region 强制走路
+        runSpeed = speed;
+        inputControl.Gameplay.MoveButton.performed += ctx =>
+        {
+            if (physicsCheck.isGround)
+                speed = walkSpeed;
+        };
+        inputControl.Gameplay.MoveButton.canceled += ctx =>
+        {
+            if (physicsCheck.isGround)
+                speed = runSpeed;
+        };
+        #endregion
+        //攻击
+        inputControl.Gameplay.Attack.started += PlayerAttack;
+        //滑铲
+        inputControl.Gameplay.Slide.started += Slide;
+        inputControl.Enable();
     }
     private void OnLoadEvent(GameSceneSO arg0, Vector3 arg1, bool arg2)
     {

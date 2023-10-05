@@ -14,24 +14,26 @@ public class Sign : MonoBehaviour
     public Transform playerTrans;
     private PlayerInputControl playerInput;
     private IInteractable targetItem;
-
-
+    public InputRouter inputRouter;
 
     private void Awake()
     {
         anim = signSprite.GetComponent<Animator>();
-        playerInput = new PlayerInputControl();
-        playerInput.Enable();
-
+        playerInput = inputRouter.InputControls;
+        playerInput.Gameplay.Confirm.started += OnConfirm;
     }
     private void OnEnable()
     {
         InputSystem.onActionChange += OnActionChange;
-        playerInput.Gameplay.Confirm.started += OnConfirm;
     }
     private void OnDisable()
     {
         canPress = false;
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void Update()
