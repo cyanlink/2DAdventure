@@ -5,7 +5,7 @@ using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Character : MonoBehaviour, ISaveable
+public class Character : MonoBehaviour, ISaveable, ITakeDamage
 {
     [Header("事件监听")]
     public VoidEventSO newGameEvent;

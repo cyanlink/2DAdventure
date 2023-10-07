@@ -5,7 +5,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public partial class PlayerController : MonoBehaviour
+public partial class PlayerController : MonoBehaviour, ITakeDamage
 {
     [Header("监听事件")]
     public SceneLoadEventSO sceneLoadEvent;
@@ -306,4 +306,8 @@ public partial class PlayerController : MonoBehaviour
         }
     }
 
+    public void TakeDamage(Attack attacker)
+    {
+        character.TakeDamage(attacker);
+    }
 }

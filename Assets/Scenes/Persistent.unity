@@ -4302,10 +4302,10 @@ MonoBehaviour:
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1505665823}
-        m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
-        m_MethodName: PlayHurt
-        m_Mode: 1
+      - m_Target: {fileID: 1505665828}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: GetHurt
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4314,10 +4314,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1505665823}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: GetHurt
-        m_Mode: 0
+      - m_Target: {fileID: 1505665831}
+        m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
+        m_MethodName: PlayHurt
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4341,7 +4341,7 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1505665823}
+      - m_Target: {fileID: 1505665828}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: PlayerDead
         m_Mode: 1

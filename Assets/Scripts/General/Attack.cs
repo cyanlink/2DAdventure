@@ -12,6 +12,11 @@ public class Attack : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         //?即先询问有没有这个组件，没有则不执行
-        other.GetComponent<Character>()?.TakeDamage(this);
+        other.GetComponent<ITakeDamage>()?.TakeDamage(this);
     }
+}
+
+public interface ITakeDamage
+{
+    public void TakeDamage(Attack attacker);
 }
