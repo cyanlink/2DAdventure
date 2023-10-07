@@ -40,5 +40,7 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetBool("isAttack", playerController.isAttack);
         anim.SetBool("onWall", physicsCheck.onWall);
         anim.SetBool("isSlide", playerController.isSlide);
+        anim.SetBool("isHoldingArrow", playerController.isHoldingArrow);
+        anim.SetBool("isHoldingBomb", playerController.isHoldingBomb);
     }
 }

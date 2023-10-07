@@ -46,6 +46,9 @@ public partial class PlayerController : MonoBehaviour
     public bool isMyCode;
     public bool wallJump;
     public bool isSlide;
+
+    //-1或者1
+    public int faceDir;
     [Header("物理材质")]
     public PhysicsMaterial2D wall;
     public PhysicsMaterial2D normal;
@@ -90,6 +93,7 @@ public partial class PlayerController : MonoBehaviour
     {
         inputDirection = inputControl.Gameplay.Move.ReadValue<Vector2>();
         CheckState();
+
     }
 
     private void FixedUpdate()
@@ -126,9 +130,9 @@ public partial class PlayerController : MonoBehaviour
         inputControl.Gameplay.Slide.started += Slide;
 
         //炸弹
-        inputControl.Gameplay.Bomb.started += BombReady;
+        inputControl.Gameplay.Bomb.performed += BombAction;
         //弓箭
-        inputControl.Gameplay.Arrow.started += ArrowReady;
+        inputControl.Gameplay.Arrow.started += ArrowAction;
 
         inputControl.Enable();
     }
@@ -156,7 +160,7 @@ public partial class PlayerController : MonoBehaviour
 
         //人物翻转
         //方法1 改变transform.scale   
-        int faceDir = (int)transform.localScale.x;
+        faceDir = (int)transform.localScale.x;
         if (inputDirection.x > 0)
             faceDir = 1;
         if (inputDirection.x < 0)
@@ -211,7 +215,7 @@ public partial class PlayerController : MonoBehaviour
 
     private void Slide(InputAction.CallbackContext context)
     {
-        if (!isSlide && physicsCheck.isGround && character.currentPower >= slidePowerCost)
+        if (!isSlide && physicsCheck.isGround && character.currentPower >= slidePowerCost && !isHoldingBomb &&!isHoldingArrow)
         {
             isSlide = true;
 
@@ -259,7 +263,7 @@ public partial class PlayerController : MonoBehaviour
 
     private void PlayerAttack(InputAction.CallbackContext obj)
     {
-        if (physicsCheck.isGround)
+        if (physicsCheck.isGround && !isHoldingArrow && !isHoldingBomb)
         {
             isAttack = true;
             playAnimation.PlayAttack();

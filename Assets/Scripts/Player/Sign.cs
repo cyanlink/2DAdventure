@@ -11,6 +11,8 @@ public class Sign : MonoBehaviour
 {
     private Animator anim;
     public GameObject signSprite;
+
+    private SpriteRenderer signRenderer;
     private bool canPress;
 
     public PlayerModeSwitcher playerModeSwitcher;
@@ -23,6 +25,7 @@ public class Sign : MonoBehaviour
     private void Awake()
     {
         anim = signSprite.GetComponent<Animator>();
+        signRenderer = signSprite.GetComponent<SpriteRenderer>();
         playerInput = inputRouter.InputControls;
         playerInput.Gameplay.Confirm.started += OnConfirm;
     }
@@ -44,7 +47,7 @@ public class Sign : MonoBehaviour
 
     private void Update()
     {
-        signSprite.GetComponent<SpriteRenderer>().enabled = canPress;
+        signRenderer.enabled = canPress;
         signSprite.transform.localScale = playerSpriteTransform.localScale;
     }
 
