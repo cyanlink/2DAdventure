@@ -9,8 +9,9 @@ public class PlayerModeSwitcher : MonoBehaviour
 
     [SerializeField]
     private GameObject sideScrollPlayerGO;
+    [SerializeField]
     private GameObject topDownPlayerGO;
-
+    [SerializeField]
     private SceneLoader sceneLoader;
 
     private PlayerModes mPlayerMode;

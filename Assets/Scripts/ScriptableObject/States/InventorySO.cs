@@ -8,6 +8,6 @@ public class InventorySO : ScriptableObject
     public int BombCount;
     public int ArrowCount;
 
-    public const BombCountMax;
-    public const ArrowCountMax;
+    public int BombCountMax;
+    public int ArrowCountMax;
 }

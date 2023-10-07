@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.DualShock;
@@ -11,7 +12,10 @@ public class Sign : MonoBehaviour
     private Animator anim;
     public GameObject signSprite;
     private bool canPress;
-    public Transform playerSpriteTransform;
+
+    public PlayerModeSwitcher playerModeSwitcher;
+    private Transform playerSpriteTransform => playerModeSwitcher.CurrentPlayerGO.transform;
+
     private PlayerInputControl playerInput;
     private IInteractable targetItem;
     public InputRouter inputRouter;
@@ -22,6 +26,7 @@ public class Sign : MonoBehaviour
         playerInput = inputRouter.InputControls;
         playerInput.Gameplay.Confirm.started += OnConfirm;
     }
+
     private void OnEnable()
     {
         InputSystem.onActionChange += OnActionChange;

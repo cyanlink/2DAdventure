@@ -11,7 +11,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour, ISaveable
 {
-    public Transform playerTrans;
+    public PlayerModeSwitcher playerModeSwitcher;
+    private Transform playerTrans => playerModeSwitcher.CurrentPlayerGO.transform;
     public Vector3 firstPosition;
     public Vector3 menuPosition;
 
