@@ -5,7 +5,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public partial class PlayerController : MonoBehaviour
 {
     [Header("监听事件")]
     public SceneLoadEventSO sceneLoadEvent;
@@ -86,20 +86,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-
-    }
-
-
-
     private void Update()
     {
         inputDirection = inputControl.Gameplay.Move.ReadValue<Vector2>();
         CheckState();
-
-        //确保父节点PlayerWrapper的世界position和这个子节点同步
-        //transform.parent.transform.position = transform.position;
     }
 
     private void FixedUpdate()
@@ -134,6 +124,12 @@ public class PlayerController : MonoBehaviour
         inputControl.Gameplay.Attack.started += PlayerAttack;
         //滑铲
         inputControl.Gameplay.Slide.started += Slide;
+
+        //炸弹
+        inputControl.Gameplay.Bomb.started += BombReady;
+        //弓箭
+        inputControl.Gameplay.Arrow.started += ArrowReady;
+
         inputControl.Enable();
     }
     private void OnLoadEvent(GameSceneSO arg0, Vector3 arg1, bool arg2)
@@ -193,7 +189,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Jump(InputAction.CallbackContext obj)
+    private void Jump(InputAction.CallbackContext ctx)
     {
         int faceDir = (int)transform.localScale.x;
         if (physicsCheck.isGround)
@@ -258,6 +254,7 @@ public class PlayerController : MonoBehaviour
         isSlide = false;
         gameObject.layer = LayerMask.NameToLayer("Player");
     }
+
 
 
     private void PlayerAttack(InputAction.CallbackContext obj)
