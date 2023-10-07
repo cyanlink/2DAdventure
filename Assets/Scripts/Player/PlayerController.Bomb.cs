@@ -51,6 +51,7 @@ public partial class PlayerController
         Vector3 dir = new Vector3(faceDir, 0, 0);
 
         var bomb = Instantiate(bombPrefab, bombIcon.transform.position, Quaternion.identity);
+        bomb.SetActive(true);
         bomb.GetComponent<Rigidbody2D>().velocity = dir * bombInitialSpeed;
         bombIcon.ToggleBombIcon(false);
     }
