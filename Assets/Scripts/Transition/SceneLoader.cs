@@ -135,6 +135,7 @@ public class SceneLoader : MonoBehaviour, ISaveable
     private void OnLoadCompleted(AsyncOperationHandle<SceneInstance> handle)
     {
         currentLoadScene = sceneToLoad;
+        SceneManager.SetActiveScene(handle.Result.Scene);
 
         playerTrans.position = positionToGo;
         playerTrans.gameObject.SetActive(true);
