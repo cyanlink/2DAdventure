@@ -34,7 +34,7 @@ public class SceneLoader : MonoBehaviour, ISaveable
     public GameSceneSO firstLoadScene;
     public GameSceneSO menuScene;
 
-    [SerializeField] private GameSceneSO currentLoadScene;//获得当前场景，用以卸载
+    [SerializeField] public GameSceneSO currentLoadScene { get; private set; }//获得当前场景，用以卸载
 
     private GameSceneSO sceneToLoad;
     private Vector3 positionToGo;

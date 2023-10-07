@@ -34,6 +34,7 @@ public class Sign : MonoBehaviour
     private void OnDisable()
     {
         canPress = false;
+        InputSystem.onActionChange -= OnActionChange;
     }
 
     private void Start()

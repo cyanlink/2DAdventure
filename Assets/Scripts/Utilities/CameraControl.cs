@@ -10,10 +10,13 @@ public class CameraControl : MonoBehaviour
     public VoidEventSO afterSceneLoadedEvent;
     public CinemachineImpulseSource impulseSource;
     private CinemachineConfiner2D confiner2D;
+    private CinemachineVirtualCamera virtualCamera;
     public VoidEventSO cameraShakeEvent;
     private void Awake()
     {
         confiner2D = GetComponent<CinemachineConfiner2D>();
+        virtualCamera = GetComponent<CinemachineVirtualCamera>();
+
     }
 
     // TODO: 场景切换后更改
@@ -37,6 +40,8 @@ public class CameraControl : MonoBehaviour
     private void OnAfterEventLoadedEvent()
     {
         GetNewCameraBounds();
+        virtualCamera.Follow = PlayerModeSwitcher.Instance.CurrentPlayerGO.transform;
+        
     }
 
     private void OnCameraShakeEvent()

@@ -15,16 +15,24 @@ public class PlayerModeSwitcher : MonoBehaviour
     private SceneLoader sceneLoader;
 
     private PlayerModes mPlayerMode;
-    public GameObject CurrentPlayerGO { get; private set; }
+
+    private GameObject mCurrentGO;
+    public GameObject CurrentPlayerGO { get=> GetCurrentPlayerGO() ; private set { mCurrentGO = value; } }
+    
+    public static PlayerModeSwitcher Instance { get; private set; }
 
     private void Awake()
     {
         CurrentPlayerGO = topDownPlayerGO;
+        topDownPlayerGO.SetActive(false);
+        sideScrollPlayerGO.SetActive(false);
+        Instance = this;
+        
     }
 
-    private void Start()
+    private GameObject GetCurrentPlayerGO()
     {
-        CurrentPlayerGO = sceneLoader.firstLoadScene.sceneType == SceneType.SafeHouse ? topDownPlayerGO : sideScrollPlayerGO;
+        return CurrentPlayerGO = sceneLoader.currentLoadScene.sceneType == SceneType.SafeHouse ? topDownPlayerGO : sideScrollPlayerGO;
     }
     public PlayerModes playerMode
     {
@@ -35,10 +43,14 @@ public class PlayerModeSwitcher : MonoBehaviour
             {
                 case PlayerModes.TopDown:
                     CurrentPlayerGO = topDownPlayerGO;
+                    topDownPlayerGO.SetActive(true);
+                    sideScrollPlayerGO.SetActive(false);
                     break;
 
                 case PlayerModes.SideScroll:
                     CurrentPlayerGO = sideScrollPlayerGO;
+                    topDownPlayerGO.SetActive(false);
+                    sideScrollPlayerGO.SetActive(true);
                     break;
                 default:
                     throw new NotImplementedException();

@@ -34,6 +34,7 @@ public class PlayerControllerTopDown : MonoBehaviour
     void Update()
     {
         inputDir = inputControl.Gameplay.Move.ReadValue<Vector2>();
+        //transform.parent.transform.position = transform.position;
     }
 
     private void FixedUpdate()

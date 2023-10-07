@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         coll = GetComponent<CapsuleCollider2D>();
         playAnimation = GetComponent<PlayerAnimation>();
-        character = GetComponent<Character>();
+        character = GetComponentInParent<Character>();
 
         originalOffset = coll.offset;
         originalSize = coll.size;
@@ -96,8 +96,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         inputDirection = inputControl.Gameplay.Move.ReadValue<Vector2>();
-
         CheckState();
+
+        //确保父节点PlayerWrapper的世界position和这个子节点同步
+        //transform.parent.transform.position = transform.position;
     }
 
     private void FixedUpdate()
