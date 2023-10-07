@@ -42,14 +42,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Back
     uniqueID: 3436670507
     locked: 0
   - name: Middle
     uniqueID: 2411373383
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Front
     uniqueID: 1101154617

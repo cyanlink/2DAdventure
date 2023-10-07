@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Events;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
@@ -23,7 +24,7 @@ public class SceneLoader : MonoBehaviour, ISaveable
     public VoidEventSO newGameEvent;
     public VoidEventSO backToMenuEvent;
 
-
+    public UnityEvent OnTeleport;
 
     public float fadeDuration;
 

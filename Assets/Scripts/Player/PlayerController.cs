@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        inputControl = inputRouter.InputControls;
+        inputControl = InputRouter.Instance.InputControls;
         physicsCheck = GetComponent<PhysicsCheck>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         coll = GetComponent<CapsuleCollider2D>();
