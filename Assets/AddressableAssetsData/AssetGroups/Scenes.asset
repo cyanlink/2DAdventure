@@ -37,6 +37,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5e7a30080f95694aa4a32517df1d21b
+    m_Address: Assets/Scenes/SafeHouseTopDown.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a440d2212a2ed794eabe0729f9ba41ec, type: 2}
   m_SchemaSet:

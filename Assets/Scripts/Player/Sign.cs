@@ -11,7 +11,7 @@ public class Sign : MonoBehaviour
     private Animator anim;
     public GameObject signSprite;
     private bool canPress;
-    public Transform playerTrans;
+    public Transform playerSpriteTransform;
     private PlayerInputControl playerInput;
     private IInteractable targetItem;
     public InputRouter inputRouter;
@@ -39,7 +39,7 @@ public class Sign : MonoBehaviour
     private void Update()
     {
         signSprite.GetComponent<SpriteRenderer>().enabled = canPress;
-        signSprite.transform.localScale = playerTrans.localScale;
+        signSprite.transform.localScale = playerSpriteTransform.localScale;
     }
 
     private void OnConfirm(InputAction.CallbackContext context)

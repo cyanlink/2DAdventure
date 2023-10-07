@@ -5,7 +5,7 @@ public enum NPCState
 public enum SceneType
 {
 
-    Location,Menu
+    Location, Menu, SafeHouse
 }
 
 public enum PersistentType

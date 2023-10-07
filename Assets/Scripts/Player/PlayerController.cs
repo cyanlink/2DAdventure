@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour
         if (isSlide)
             return;
         if (!isCrouch && !wallJump)
-            rb.velocity = new Vector2(inputDirection.x * speed * Time.deltaTime, rb.velocity.y);
+            rb.velocity = new Vector2(inputDirection.x * speed , rb.velocity.y);
 
         //人物翻转
         //方法1 改变transform.scale   

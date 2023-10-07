@@ -1,18 +1,52 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerModeSwitcher : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("ÅäÖÃ")]
+
+    [SerializeField]
+    private GameObject sideScrollPlayerGO;
+    private GameObject topDownPlayerGO;
+
+    private SceneLoader sceneLoader;
+
+    private PlayerModes mPlayerMode;
+    public GameObject CurrentPlayerGO { get; private set; }
+
+    private void Awake()
     {
-        
+        CurrentPlayerGO = topDownPlayerGO;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        CurrentPlayerGO = sceneLoader.firstLoadScene.sceneType == SceneType.SafeHouse ? topDownPlayerGO : sideScrollPlayerGO;
     }
+    public PlayerModes playerMode
+    {
+        get => mPlayerMode;
+        set
+        {
+            switch (value)
+            {
+                case PlayerModes.TopDown:
+                    CurrentPlayerGO = topDownPlayerGO;
+                    break;
+
+                case PlayerModes.SideScroll:
+                    CurrentPlayerGO = sideScrollPlayerGO;
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+    }
+}
+
+public enum PlayerModes
+{
+    SideScroll, TopDown
 }
