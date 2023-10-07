@@ -306,7 +306,7 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
         }
     }
 
-    public void TakeDamage(Attack attacker)
+    public void TakeDamage(IAttack attacker)
     {
         character.TakeDamage(attacker);
     }

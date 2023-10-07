@@ -9,16 +9,19 @@ public class Bomb : MonoBehaviour
 {
     [Header("≈‰÷√")]
     public float DelayDetonateTime;
+    
 
     private Rigidbody2D rb;
     private Collider2D col;
     private Animator anim;
+    private BombExplodeDamage damager;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
+        damager = GetComponentInChildren<BombExplodeDamage>();
     }
 
 
@@ -38,6 +41,6 @@ public class Bomb : MonoBehaviour
 
     private void DealDamage()
     {
-        
+        damager.DealExplodeDamage();
     }
 }

@@ -91,16 +91,16 @@ public class Character : MonoBehaviour, ISaveable, ITakeDamage
     }
 
 
-    public void TakeDamage(Attack attacker)
+    public void TakeDamage(IAttack attacker)
     {
         if (invulnerable)
             return;
-        if (currentHealth - attacker.damage > 0)
+        if (currentHealth - attacker.Damage > 0)
         {
-            currentHealth -= attacker.damage;
+            currentHealth -= attacker.Damage;
             TriggerInvulnerable();
             //执行受伤
-            OnTakeDamage?.Invoke(attacker.transform);
+            OnTakeDamage?.Invoke(attacker.Transform);
 
         }
         else
