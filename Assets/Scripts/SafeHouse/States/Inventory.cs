@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Inventory")]
-public class InventorySO : ScriptableObject
+public class InventorySO : MonoBehaviour
 {
+    public int Gold;
+    public int Luck;
+
     public int BombCount;
     public int ArrowCount;
 
