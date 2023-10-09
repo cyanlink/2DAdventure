@@ -30,7 +30,7 @@ public class Character : MonoBehaviour, ISaveable, ITakeDamage
     void NewGame()
     {
         currentHealth = maxHealth;
-        OnHealthChange?.Invoke(this);//默认血条UI不满，回满血条UI
+        OnHealthChange.Invoke(this);//默认血条UI不满，回满血条UI
         currentPower = maxPower;
     }
     private void Start()
@@ -69,19 +69,15 @@ public class Character : MonoBehaviour, ISaveable, ITakeDamage
 
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    public void InstantKill()
     {
-        if (other.CompareTag("Water"))
+        if (currentHealth > 0)
         {
-            if (currentHealth > 0)
-            {
-                //死亡、更新血量
-                currentHealth = 0;
-                OnHealthChange?.Invoke(this);
-                OnDie?.Invoke();
-            }
+            //死亡、更新血量
+            currentHealth = 0;
+            OnHealthChange.Invoke(this);
+            OnDie?.Invoke();
         }
-
     }
 
     public void OnSlide(int cost)
@@ -109,6 +105,14 @@ public class Character : MonoBehaviour, ISaveable, ITakeDamage
             //触发死亡
             OnDie.Invoke();
         }
+        OnHealthChange?.Invoke(this);
+    }
+
+    public void Heal(int healAmount)
+    {
+        var temp = currentHealth + healAmount;
+        if (temp > maxHealth) temp = maxHealth;
+        currentHealth = temp;
         OnHealthChange?.Invoke(this);
     }
 

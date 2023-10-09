@@ -7,15 +7,17 @@ using UnityEngine;
 public class SlotMachineState : MonoBehaviour
 {
     //第一次免费
-    public int goldNeededToRoll = 0;
-    public int rerollPenalty = 10;
+    public int GoldNeededToRoll = 0;
+    public int RerollPenalty = 10;
 
     public Inventory inventory;
+
+    private PenaltyType penaltyType = PenaltyType.Addition;
     private void Awake()
     {
         inventory = GetComponent<Inventory>();
     }
-    public void TryRollSlotMachine()
+    public void RollSlotMachine()
     {
         GetRandomResult();
         
@@ -29,6 +31,18 @@ public class SlotMachineState : MonoBehaviour
 
     private void ApplyRerollPenalty()
     {
-        goldNeededToRoll += rerollPenalty;
+        GoldNeededToRoll = (penaltyType) switch
+        {
+            PenaltyType.Addition => GoldNeededToRoll + RerollPenalty,
+            PenaltyType.Multiply => GoldNeededToRoll == 0 ? RerollPenalty : GoldNeededToRoll * 2,
+            _ => throw new NotImplementedException(),
+        };
     }
+
+
+}
+
+public enum PenaltyType
+{
+    Addition, Multiply
 }

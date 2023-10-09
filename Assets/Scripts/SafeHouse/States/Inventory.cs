@@ -35,7 +35,9 @@ public static class GlobalState
         }
     }
 
-    public static Inventory Inventory => Instance.transform.GetComponent<Inventory>();
+    public static Inventory Inventory => Instance.GetComponent<Inventory>();
 
-    public static SlotMachineState SlotMachine => Instance.transform.GetComponent<SlotMachineState>();
+    public static SlotMachineState SlotMachine => Instance.GetComponent<SlotMachineState>();
+
+    public static Character PlayerCharacter => Instance.GetComponent<Character>();
 }

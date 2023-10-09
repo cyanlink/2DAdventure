@@ -104,7 +104,10 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        //Debug.Log(other.name);
+        if (other.CompareTag("Water"))
+        {
+            character.InstantKill();
+        }
     }
 
     private void RegisterInputActions()
