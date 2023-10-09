@@ -15,6 +15,9 @@ public class Attack : MonoBehaviour, IAttack
 
     float IAttack.AttackRate => this.attackRate;
 
+    /// <summary>
+    /// 结果可能为null，Transform是UnityObject所以不能用？
+    /// </summary>
     Transform IAttack.Transform => this.transform;
 
     private void OnTriggerStay2D(Collider2D other)

@@ -137,9 +137,18 @@ public class SceneLoader : MonoBehaviour, ISaveable
         currentLoadScene = sceneToLoad;
         SceneManager.SetActiveScene(handle.Result.Scene);
 
-        playerTrans.position = positionToGo;
-        playerTrans.gameObject.SetActive(true);
+        //playerTrans.position = positionToGo;
+        var spawnpoint = GameObject.FindGameObjectWithTag("Spawn");
+        if(spawnpoint == null) 
+        { 
+            playerTrans.position = positionToGo; 
+        } 
+        else
+        {
+            playerTrans.position = spawnpoint.transform.position;
+        }
 
+        playerTrans.gameObject.SetActive(true);
         if (fadeScreen)
         {
             fadeEvent.FadeOut(fadeDuration);
