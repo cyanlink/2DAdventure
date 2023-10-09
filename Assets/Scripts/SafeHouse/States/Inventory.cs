@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[RequireComponent(typeof(SlotMachineState))]
 public class Inventory : MonoBehaviour
 {
     public int Gold;

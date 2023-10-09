@@ -62,7 +62,7 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
         spriteRenderer = GetComponent<SpriteRenderer>();
         coll = GetComponent<CapsuleCollider2D>();
         playAnimation = GetComponent<PlayerAnimation>();
-        character = GetComponentInParent<Character>();
+        character = GlobalState.PlayerCharacter;
 
         originalOffset = coll.offset;
         originalSize = coll.size;
@@ -228,7 +228,7 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
             gameObject.layer = LayerMask.NameToLayer("Enemy");
             StartCoroutine(TriggerSlide(targetPos));
 
-            GetComponent<Character>().OnSlide(slidePowerCost);
+            character.OnSlide(slidePowerCost);
 
         }
 

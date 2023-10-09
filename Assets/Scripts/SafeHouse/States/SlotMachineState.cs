@@ -3,14 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Inventory))]
 public class SlotMachineState : MonoBehaviour
 {
     //第一次免费
     public int GoldNeededToRoll = 0;
     public int RerollPenalty = 10;
 
-    public Inventory inventory;
+    private Inventory inventory;
 
     private PenaltyType penaltyType = PenaltyType.Addition;
     private void Awake()

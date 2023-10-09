@@ -9,6 +9,7 @@ TagManager:
   - Interactable
   - BGM
   - Spawn
+  - GlobalState
   layers:
   - Default
   - TransparentFX
