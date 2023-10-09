@@ -40,7 +40,7 @@ public class SlotMachineState : MonoBehaviour
     }
 
 
-}
+    }
 
 public enum PenaltyType
 {
