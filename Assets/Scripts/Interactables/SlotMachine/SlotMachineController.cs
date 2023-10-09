@@ -9,6 +9,8 @@ public class SlotMachineController : MonoBehaviour, IInteractable
     private Inventory inventory;
 
     public List<SlotMachineRow> rows;
+    public PlayAudioEventSO FXEvent;
+    public AudioClip DenyAudio;
 
     private void Awake()
     {
@@ -32,7 +34,7 @@ public class SlotMachineController : MonoBehaviour, IInteractable
 
     private void PlayDenySound()
     {
-        
+        FXEvent.RaiseEvent(DenyAudio);
     }
 
 
