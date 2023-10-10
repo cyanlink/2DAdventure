@@ -36,11 +36,13 @@ public class Bomb : MonoBehaviour
     {
         await UniTask.Delay(TimeSpan.FromSeconds(DelayDetonateTime));
         anim.Play("explode");
-        DealDamage();
+        
     }
 
-    private void DealDamage()
+    //由animation event来在动画末尾调用这个方法
+    public void DealDamage()
     {
         damager.DealExplodeDamage();
+        Destroy(gameObject);
     }
 }
