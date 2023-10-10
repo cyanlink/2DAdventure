@@ -60,6 +60,7 @@ public class Character : MonoBehaviour, ISaveable, ITakeDamage
             if (invulnerableCount <= 0)
             {
                 invulnerable = false;
+                //gameObject.layer = LayerMask.NameToLayer("Player");
             }
         }
         if (currentPower < maxPower)
@@ -119,6 +120,7 @@ public class Character : MonoBehaviour, ISaveable, ITakeDamage
     private void TriggerInvulnerable()
     {
         invulnerable = true;
+        //gameObject.layer = LayerMask.NameToLayer();
         invulnerableCount = invulnerableDuration;
     }
 
