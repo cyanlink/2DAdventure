@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        faceDir = new Vector3(-transform.localScale.x, 0, 0);
+        faceDir = new Vector3(Mathf.Sign(-transform.localScale.x), 0, 0);
         //if((physicsCheck.touchLeftWall && faceDir.x < 0) || (physicsCheck.touchRightWall && faceDir.x > 0))
         //{
         //    wait = true;
@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour
     public virtual void Move()
     {
         if(!anim.GetCurrentAnimatorStateInfo(0).IsName("PreMove") && !anim.GetCurrentAnimatorStateInfo(0).IsName("snailRecover"))
-            rb.velocity = new Vector2(currentSpeed * faceDir.x * Time.deltaTime,rb.velocity.y);
+            rb.velocity = new Vector2(currentSpeed * faceDir.x,rb.velocity.y);
     }
 
     public void TimeCounter()
