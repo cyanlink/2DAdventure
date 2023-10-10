@@ -20,7 +20,7 @@ public class Bomb : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         damager = GetComponentInChildren<BombExplodeDamage>();
     }
 
@@ -39,10 +39,9 @@ public class Bomb : MonoBehaviour
         
     }
 
-    //由animation event来在动画末尾调用这个方法
+    //由animation event来在动画中调用这个方法
     public void DealDamage()
     {
         damager.DealExplodeDamage();
-        Destroy(gameObject);
     }
 }

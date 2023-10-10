@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
             {
                 wait = false;
                 waitTimeCount = waitTime;
-                transform.localScale = new Vector3(faceDir.x, 1, 1);
+                transform.localScale = new Vector3(faceDir.x, transform.localScale.y);
             }
         }
         //我认为的改良
@@ -130,9 +130,9 @@ public class Enemy : MonoBehaviour
     {
         attacker = attackTrans;
         if (attackTrans.position.x - transform.position.x > 0)
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
         if (attackTrans.position.x - transform.position.x < 0)
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y);
 
         isHurt = true;
         //我的补丁
