@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 390832420}
   - component: {fileID: 390832419}
   - component: {fileID: 390832418}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Attack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 498363723}
   - component: {fileID: 498363722}
   - component: {fileID: 498363721}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -999,7 +999,7 @@ GameObject:
   - component: {fileID: 600515908}
   - component: {fileID: 600515907}
   - component: {fileID: 600515906}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ///PlayerSideScroll
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1252,7 +1252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 699082972}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Attack Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2893,7 +2893,7 @@ GameObject:
   - component: {fileID: 1505800685}
   - component: {fileID: 1505800687}
   - component: {fileID: 1505800686}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BombSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2909,8 +2909,8 @@ Transform:
   m_GameObject: {fileID: 1505800684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.6, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 600515905}
@@ -4318,7 +4318,7 @@ GameObject:
   - component: {fileID: 1947907041}
   - component: {fileID: 1947907043}
   - component: {fileID: 1947907042}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sign Spirte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4471,7 +4471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482679621632484897, guid: 9049c0562d5a34d43afb8e69e6c0e5e7, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3482679621632484897, guid: 9049c0562d5a34d43afb8e69e6c0e5e7, type: 3}
       propertyPath: m_IsActive
@@ -4480,36 +4480,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3482679621632484897, guid: 9049c0562d5a34d43afb8e69e6c0e5e7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1981821953}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9049c0562d5a34d43afb8e69e6c0e5e7, type: 3}
 --- !u!4 &1981821951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2183048606451142097, guid: 9049c0562d5a34d43afb8e69e6c0e5e7, type: 3}
   m_PrefabInstance: {fileID: 1981821950}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1981821952 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3482679621632484897, guid: 9049c0562d5a34d43afb8e69e6c0e5e7, type: 3}
-  m_PrefabInstance: {fileID: 1981821950}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1981821953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981821952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c89329f4e5ef9749aea861b2d45f46f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  attackRange: 0
-  attackRate: 0
 --- !u!1 &1985012431
 GameObject:
   m_ObjectHideFlags: 0

@@ -131,12 +131,12 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
         //攻击
         inputControl.Gameplay.Attack.started += PlayerAttack;
         //滑铲
-        inputControl.Gameplay.Slide.started += Slide;
+        //inputControl.Gameplay.Slide.started += Slide;
 
         //炸弹
         inputControl.Gameplay.Bomb.performed += BombAction;
         //弓箭
-        inputControl.Gameplay.Arrow.started += ArrowAction;
+        //inputControl.Gameplay.Arrow.started += ArrowAction;
 
         inputControl.Enable();
     }
