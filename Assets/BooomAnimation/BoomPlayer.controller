@@ -22,7 +22,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2f4786fdb9eebff49b0a8b512bbadf80, type: 2}
+  m_Motion: {fileID: 7400000, guid: e706b1077bdf81342b9672729598619f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -181,7 +181,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 17e4ad1cf0913cc40b634d3f089e79aa, type: 2}
+  m_Motion: {fileID: 7400000, guid: e09abe62e8681514c98d29612f352c4f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -704,7 +704,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d2e14551a68810147b30856297c5a7bb, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3d818b4ba19455d4d945ed4181373ebb, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -821,7 +821,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Plater
+  m_Name: BoomPlayer
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: velocityX
@@ -1072,7 +1072,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -5490181724692493730}
+  m_Motion: {fileID: 7400000, guid: 943e2aec1c8954447a4142a82527c2c6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1459,7 +1459,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fc28793c72e98f645ab27d81aad7c64e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9e8d58d9a1a072949962245785e092a1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
