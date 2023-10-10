@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
             {
                 wait = false;
                 waitTimeCount = waitTime;
-                transform.localScale = new Vector3(faceDir.x, transform.localScale.y);
+                transform.localScale = new Vector3(faceDir.x * transform.localScale.x , transform.localScale.y);
             }
         }
         //我认为的改良

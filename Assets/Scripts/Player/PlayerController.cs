@@ -309,7 +309,6 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(IAttack attacker)
     {
-        GetHurt(attacker.Transform);
         character.TakeDamage(attacker);
     }
 }

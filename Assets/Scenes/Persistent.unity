@@ -4475,7 +4475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482679621632484897, guid: 9049c0562d5a34d43afb8e69e6c0e5e7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4653,7 +4653,7 @@ MonoBehaviour:
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 600515908}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: GetHurt
         m_Mode: 0
@@ -4665,7 +4665,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 600515906}
         m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
         m_MethodName: PlayHurt
         m_Mode: 1
