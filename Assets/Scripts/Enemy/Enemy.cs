@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D),typeof(Animator),typeof(PhysicsCheck))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(PhysicsCheck))]
 public class Enemy : MonoBehaviour
 {
     [Header("组件")]
-    [HideInInspector]public Rigidbody2D rb;
+    [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public Animator anim;
     [HideInInspector] public PhysicsCheck physicsCheck;
 
@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        faceDir = new Vector3(Mathf.Sign(-transform.localScale.x), 0, 0);
+        faceDir = new Vector3(Mathf.Sign(-transform.localScale.x), 1, 1);
         //if((physicsCheck.touchLeftWall && faceDir.x < 0) || (physicsCheck.touchRightWall && faceDir.x > 0))
         //{
         //    wait = true;
@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         currentState.PhysicsUpdate();
-        if(!isHurt && !isDead && !wait)
+        if (!isHurt && !isDead && !wait)
             Move();
     }
 
@@ -95,26 +95,26 @@ public class Enemy : MonoBehaviour
 
     public virtual void Move()
     {
-        if(!anim.GetCurrentAnimatorStateInfo(0).IsName("PreMove") && !anim.GetCurrentAnimatorStateInfo(0).IsName("snailRecover"))
-            rb.velocity = new Vector2(currentSpeed * faceDir.x,rb.velocity.y);
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("PreMove") && !anim.GetCurrentAnimatorStateInfo(0).IsName("snailRecover"))
+            rb.velocity = new Vector2(currentSpeed * faceDir.x, rb.velocity.y);
     }
 
     public void TimeCounter()
     {
-        if(wait)
+        if (wait)
         {
             waitTimeCount -= Time.deltaTime;
-            if(waitTimeCount<0)
+            if (waitTimeCount < 0)
             {
                 wait = false;
                 waitTimeCount = waitTime;
-                transform.localScale = new Vector3(faceDir.x * transform.localScale.x , transform.localScale.y);
+                transform.localScale = Vector3.Scale(faceDir, transform.localScale);
             }
         }
         //我认为的改良
         if (!FoundPlayer())
         {
-            if(loseTimeCounter > 0)
+            if (loseTimeCounter > 0)
                 loseTimeCounter -= Time.deltaTime;
         }
         else
@@ -141,7 +141,7 @@ public class Enemy : MonoBehaviour
         //
 
         anim.SetTrigger("hurt");
-        Vector2 dir = new Vector2(transform.position.x - attackTrans.position.x,0).normalized;
+        Vector2 dir = new Vector2(transform.position.x - attackTrans.position.x, 0).normalized;
         rb.velocity = new Vector2(0, rb.velocity.y);
         StartCoroutine(OnHurt(dir));
     }
@@ -167,7 +167,7 @@ public class Enemy : MonoBehaviour
 
     public virtual bool FoundPlayer()
     {
-        return Physics2D.BoxCast(transform.position+(Vector3)centerOffset,checkSize,0,faceDir,checkDistance,attackLayer);
+        return Physics2D.BoxCast(transform.position + (Vector3)centerOffset, checkSize, 0, faceDir, checkDistance, attackLayer);
     }
 
     public virtual void OnDrawGizmosSelected()

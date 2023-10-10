@@ -29,7 +29,7 @@ public class BombExplodeDamage : MonoBehaviour, IAttack
         var taker = collision.gameObject.GetComponent<ITakeDamage>();
         if (taker != null)
         {
-            damageTakers.Add(collision.gameObject, taker);
+            damageTakers.TryAdd(collision.gameObject, taker);
         }
     }
 

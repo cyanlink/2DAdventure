@@ -31,6 +31,7 @@ public class BeePatrolState : BaseState
         }
 
         //转向
+        //TODO 不应该硬编码scale
         moveDir = (target - currentEnemy.transform.position).normalized;
         if(moveDir.x > 0)
             currentEnemy.transform.localScale = new Vector3(-1, 1, 1);
