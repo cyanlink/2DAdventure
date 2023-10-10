@@ -48,7 +48,7 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
     public bool isSlide;
 
     //-1或者1
-    public int faceDir;
+    public bool flipX;
     [Header("物理材质")]
     public PhysicsMaterial2D wall;
     public PhysicsMaterial2D normal;
@@ -92,12 +92,13 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
     private void Update()
     {
         inputDirection = inputControl.Gameplay.Move.ReadValue<Vector2>();
-        CheckState();
 
     }
 
     private void FixedUpdate()
     {
+        CheckState();
+
         if (!isHurt && !isAttack)
             Move();
     }
@@ -112,7 +113,7 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
 
     private void RegisterInputActions()
     {
-        inputControl.Gameplay.Jump.started += Jump;
+        inputControl.Gameplay.Jump.performed += Jump;
 
         #region 强制走路
         runSpeed = speed;
@@ -159,11 +160,11 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
         if (isSlide)
             return;
         if (!isCrouch && !wallJump)
-            rb.velocity = new Vector2(inputDirection.x * speed , rb.velocity.y);
+            rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x + inputDirection.x * speed, -speed, speed ), rb.velocity.y);
 
         //人物翻转
         //方法1 改变transform.scale   
-        //faceDir = (int)transform.localScale.x;
+        //faceDir = (int)FaceDir();
         //if (inputDirection.x > 0)
         //    faceDir = 1;
         //if (inputDirection.x < 0)
@@ -171,12 +172,12 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
         //transform.localScale = new Vector3(faceDir, 1, 1);
 
         //方法2 改变SpriteRenderer.flipX
-        bool flip = spriteRenderer.flipX;
+        flipX = spriteRenderer.flipX;
         if (inputDirection.x > 0)
-            flip = false;
+            flipX = false;
         if (inputDirection.x < 0)
-            flip = true;
-        spriteRenderer.flipX = flip;
+            flipX = true;
+        spriteRenderer.flipX = flipX;
 
         //蹲下
         isCrouch = inputDirection.y < -0.5f && physicsCheck.isGround;
@@ -196,7 +197,6 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
 
     private void Jump(InputAction.CallbackContext ctx)
     {
-        int faceDir = (int)transform.localScale.x;
         if (physicsCheck.isGround)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
@@ -211,7 +211,6 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
             wallJump = true;
             GetComponent<AudioDefination>()?.PlayAudioClip();
         }
-
     }
 
     private void Slide(InputAction.CallbackContext context)
@@ -221,13 +220,12 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
             isSlide = true;
 
 
-            var targetPos = new Vector3(transform.position.x + slideDistance * transform.localScale.x, transform.position.y);
+            var targetPos = new Vector3(transform.position.x + slideDistance * FaceDir(), transform.position.y);
 
             gameObject.layer = LayerMask.NameToLayer("Enemy");
             StartCoroutine(TriggerSlide(targetPos));
 
             character.OnSlide(slidePowerCost);
-
         }
 
     }
@@ -243,7 +241,7 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
                 break;
             }
 
-            if (physicsCheck.touchLeftWall && transform.localScale.x < 0f || physicsCheck.touchRightWall && transform.localScale.x > 0f)
+            if (physicsCheck.touchLeftWall && FaceDir() < 0f || physicsCheck.touchRightWall && FaceDir() > 0f)
             {
                 break;
             }
@@ -253,18 +251,21 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
                 break;
             }
 
-            rb.MovePosition(new Vector2(transform.position.x + transform.localScale.x * slideSpeed, transform.position.y));
+            rb.MovePosition(new Vector2(transform.position.x + FaceDir() * slideSpeed, transform.position.y));
         } while (Mathf.Abs(target.x - transform.position.x) > 0.1f);
 
         isSlide = false;
         gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
-
+    private int FaceDir()
+    {
+        return flipX ? -1 : 1;
+    }
 
     private void PlayerAttack(InputAction.CallbackContext obj)
     {
-        if (physicsCheck.isGround && !isHoldingArrow && !isHoldingBomb)
+        if (!isHoldingArrow && !isHoldingBomb)
         {
             isAttack = true;
             playAnimation.PlayAttack();
@@ -278,7 +279,6 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
         Vector2 dir =
             new Vector2((transform.position.x - attacker.transform.position.x), 0).normalized;
         rb.AddForce(dir * hurtForce, ForceMode2D.Impulse);
-
     }
 
     public void PlayerDead()

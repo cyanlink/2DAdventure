@@ -48,7 +48,7 @@ public partial class PlayerController
 
     private void TossBomb()
     {
-        Vector3 dir = new Vector3(faceDir, 0, 0);
+        Vector3 dir = new Vector3(FaceDir(), 0, 0);
 
         var bomb = Instantiate(bombPrefab, bombIcon.transform.position, Quaternion.identity);
         bomb.SetActive(true);
