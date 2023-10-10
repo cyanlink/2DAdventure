@@ -163,22 +163,20 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
 
         //人物翻转
         //方法1 改变transform.scale   
-        faceDir = (int)transform.localScale.x;
-        if (inputDirection.x > 0)
-            faceDir = 1;
-        if (inputDirection.x < 0)
-            faceDir = -1;
-
-
-        transform.localScale = new Vector3(faceDir, 1, 1);
+        //faceDir = (int)transform.localScale.x;
+        //if (inputDirection.x > 0)
+        //    faceDir = 1;
+        //if (inputDirection.x < 0)
+        //    faceDir = -1;
+        //transform.localScale = new Vector3(faceDir, 1, 1);
 
         //方法2 改变SpriteRenderer.flipX
-        //bool flip = spriteRenderer.flipX;
-        //if (inputDirection.x > 0)
-        //    flip = false;
-        //if (inputDirection.x < 0)
-        //    flip = true;
-        //spriteRenderer.flipX = flip;
+        bool flip = spriteRenderer.flipX;
+        if (inputDirection.x > 0)
+            flip = false;
+        if (inputDirection.x < 0)
+            flip = true;
+        spriteRenderer.flipX = flip;
 
         //蹲下
         isCrouch = inputDirection.y < -0.5f && physicsCheck.isGround;
