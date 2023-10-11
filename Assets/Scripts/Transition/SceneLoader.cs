@@ -148,7 +148,7 @@ public class SceneLoader : MonoBehaviour, ISaveable
             playerTrans.position = spawnpoint.transform.position;
         }
 
-        playerTrans.gameObject.SetActive(true);
+        playerTrans.gameObject.SetActive(currentLoadScene.sceneType == SceneType.Menu ? false: true);
         if (fadeScreen)
         {
             fadeEvent.FadeOut(fadeDuration);
