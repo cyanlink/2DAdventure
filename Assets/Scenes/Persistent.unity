@@ -1768,7 +1768,8 @@ PrefabInstance:
       propertyPath: impulseSource
       value: 
       objectReference: {fileID: 139490543}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8094030348255017050, guid: ccbc9eebe6b316a42986dd42e37666be, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

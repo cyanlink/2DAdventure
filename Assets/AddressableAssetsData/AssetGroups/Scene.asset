@@ -10,20 +10,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Scenes
+  m_Name: Scene
   m_EditorClassIdentifier: 
-  m_GroupName: Scenes
+  m_GroupName: Scene
   m_Data:
     m_SerializedData: []
-  m_GUID: 50a29dda23788ed4689b836d051db3ad
+  m_GUID: d81583a95c7bd8149ad3af6367c0406f
   m_SerializeEntries:
-  - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
-    m_Address: Cave
+  - m_GUID: 65e3774fcc8e1d54da315fdc5906bde7
+    m_Address: Persistent
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c776be4c24cbeb342a7012daca0fcd3e
-    m_Address: Forest
+  - m_GUID: a5e7a30080f95694aa4a32517df1d21b
+    m_Address: SafeHouseTopDown
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d44b13f759543b2499bcd56b11f1ccfa
+    m_Address: Demo 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af888a1673b82bb468143e1a14b0605a
+    m_Address: Demo 2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e92459e638d3abe438ca11ce4f25be5a
+    m_Address: Demo 3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a0cf3a337257f648ae9e8edb01df47b
+    m_Address: Demo 4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7910b8d6404bbe4589223b7aa5a0caf
+    m_Address: Demo 5(Final)
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -32,44 +57,9 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 65e3774fcc8e1d54da315fdc5906bde7
-    m_Address: Persistent
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a5e7a30080f95694aa4a32517df1d21b
-    m_Address: Assets/Scenes/SafeHouseTopDown.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e92459e638d3abe438ca11ce4f25be5a
-    m_Address: Assets/Scenes/Levels/Demo 3.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b7910b8d6404bbe4589223b7aa5a0caf
-    m_Address: Assets/Scenes/Levels/Demo 5(Final).unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5a0cf3a337257f648ae9e8edb01df47b
-    m_Address: Assets/Scenes/Levels/Demo 4.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d44b13f759543b2499bcd56b11f1ccfa
-    m_Address: Assets/Scenes/Levels/Demo 1.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: af888a1673b82bb468143e1a14b0605a
-    m_Address: Assets/Scenes/Levels/Demo 2.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a440d2212a2ed794eabe0729f9ba41ec, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 9471a26ee5d17fc4c8d4cf807ef1b1b9, type: 2}
-    - {fileID: 11400000, guid: 83b2e2a3d8a5fe34883da77715ccf88f, type: 2}
+    - {fileID: 11400000, guid: 5867ec1c11f436d44b424efa6884427c, type: 2}
+    - {fileID: 11400000, guid: b7928c62645ec9547b333734642c6c0a, type: 2}

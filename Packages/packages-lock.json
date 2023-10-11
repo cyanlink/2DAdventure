@@ -94,11 +94,11 @@
       "url": "https://packages.unity.cn"
     },
     "com.unity.addressables": {
-      "version": "1.21.15",
+      "version": "1.21.18",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.scriptablebuildpipeline": "1.21.8",
+        "com.unity.scriptablebuildpipeline": "1.21.20",
         "com.unity.modules.assetbundle": "1.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
@@ -191,13 +191,6 @@
       },
       "url": "https://packages.unity.cn"
     },
-    "com.unity.ide.vscode": {
-      "version": "1.2.5",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.cn"
-    },
     "com.unity.inputsystem": {
       "version": "1.7.0",
       "depth": 0,
@@ -245,7 +238,7 @@
       }
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "1.21.8",
+      "version": "1.21.20",
       "depth": 1,
       "source": "registry",
       "dependencies": {},

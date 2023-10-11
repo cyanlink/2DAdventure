@@ -10,25 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Enemies
+  m_Name: Various
   m_EditorClassIdentifier: 
-  m_GroupName: Enemies
+  m_GroupName: Various
   m_Data:
     m_SerializedData: []
-  m_GUID: 1a875c624fea76f4a9d7b0470705d5b0
+  m_GUID: 5c92fb38fd1ab1046967c3ae92ed97e7
   m_SerializeEntries:
-  - m_GUID: 25d2a7432c0b0be40ba41b42a8f511b6
-    m_Address: Boar
+  - m_GUID: 0cf59fb5299a6fb41ba289bfb4914535
+    m_Address: Ghost
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c846b08506db22b47b0aece03a8098aa
-    m_Address: Snail
+  - m_GUID: b2e2eb72f8d3df74085e5f014787c7ad
+    m_Address: Teleport
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 614910520c9ce074f9df068a4f86790d
-    m_Address: Bee
+  - m_GUID: 2b3c8bbd845f05340bc4fa892eb12454
+    m_Address: SpawnPoint
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06e2ebfd44263d547b899e463e9a9872
+    m_Address: Arrow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9049c0562d5a34d43afb8e69e6c0e5e7
+    m_Address: Bomb
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -36,5 +46,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: a440d2212a2ed794eabe0729f9ba41ec, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: a48ea46ed81e5f545bedd4b2805d37fa, type: 2}
-    - {fileID: 11400000, guid: 1e39b33c89986524e92ad9e133faea3e, type: 2}
+    - {fileID: 11400000, guid: d2eb2cc8a2a845144abc2227babcfcca, type: 2}
+    - {fileID: 11400000, guid: a2995a70cbbc27b49b9ce30f573a1fa8, type: 2}
