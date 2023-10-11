@@ -41,16 +41,18 @@ private void OnEnable()
     {
         inputDir = inputControl.Gameplay.Move.ReadValue<Vector2>();
         //transform.parent.transform.position = transform.position;
-        anim.SetFloat("velocityX", rb.velocity.x);
-        anim.SetFloat("velocityY", rb.velocity.y);
+        anim.SetFloat("velocityX", inputDir.x);
+        anim.SetFloat("velocityY", inputDir.y);
+        anim.SetBool("hasInput", inputDir != Vector2.zero);
     }
 
     private void FixedUpdate()
     {
-        
-        var temp = Vector2.Scale(inputDir, speedCap);
-        var sum = temp + rb.velocity;
-        rb.velocity = new Vector2(clampMaxSpeed(sum.x), clampMaxSpeed(sum.y));
+
+        rb.velocity = new Vector2(inputDir.x * runSpeed, inputDir.y * runSpeed);
+        //var temp = Vector2.Scale(inputDir, speedCap);
+        //var sum = temp + rb.velocity;
+        //rb.velocity = new Vector2(clampMaxSpeed(sum.x), clampMaxSpeed(sum.y));
     }
 
     private float clampMaxSpeed(float value)
