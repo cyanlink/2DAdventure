@@ -48,12 +48,13 @@ public partial class PlayerController
 
     private void TossBomb()
     {
-        Vector3 dir = new Vector3(FaceDir(), 0, 0);
+        Vector2 dir = new Vector2(FaceDir(), 0);
 
         var bomb = Instantiate(bombPrefab, bombIcon.transform.position, Quaternion.identity);
         bomb.SetActive(true);
-        bomb.GetComponent<Rigidbody2D>().velocity = dir * bombInitialSpeed;
+        bomb.GetComponent<Rigidbody2D>().velocity = dir * bombInitialSpeed + rb.velocity * 0.1f;
         bombIcon.ToggleBombIcon(false);
+
     }
 
     private async UniTaskVoid AllowTossBombLater()

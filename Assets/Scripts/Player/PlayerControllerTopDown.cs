@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerControllerTopDown : MonoBehaviour
 {
     public float runSpeed;
+    private Vector2 speedCap;
 
     private PlayerInputControl inputControl;
 
     private Rigidbody2D rb;
     private CapsuleCollider2D capsuleCollider;
+    private Animator anim;
 
     private Vector2 inputDir;
 
@@ -17,10 +20,13 @@ public class PlayerControllerTopDown : MonoBehaviour
     {
         inputControl = InputRouter.Instance.InputControls;
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
-    }
+    speedCap = new Vector2(runSpeed, runSpeed);
 
-    private void OnEnable()
+}
+
+private void OnEnable()
     {
         inputControl.Gameplay.Enable();
     }
@@ -35,10 +41,20 @@ public class PlayerControllerTopDown : MonoBehaviour
     {
         inputDir = inputControl.Gameplay.Move.ReadValue<Vector2>();
         //transform.parent.transform.position = transform.position;
+        anim.SetFloat("velocityX", rb.velocity.x);
+        anim.SetFloat("velocityY", rb.velocity.y);
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(inputDir.x * runSpeed  , inputDir.y * runSpeed);
+        
+        var temp = Vector2.Scale(inputDir, speedCap);
+        var sum = temp + rb.velocity;
+        rb.velocity = new Vector2(clampMaxSpeed(sum.x), clampMaxSpeed(sum.y));
+    }
+
+    private float clampMaxSpeed(float value)
+    {
+        return Mathf.Clamp(value, -runSpeed, runSpeed);
     }
 }
