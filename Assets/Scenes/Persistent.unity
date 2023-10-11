@@ -611,6 +611,14 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 1567743042813718668, guid: fcc64b42972583f48b4a173fe655f38f, type: 3}
+      propertyPath: field of view
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567743042813718668, guid: fcc64b42972583f48b4a173fe655f38f, type: 3}
+      propertyPath: orthographic size
+      value: 7.4525967
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567743042813718668, guid: fcc64b42972583f48b4a173fe655f38f, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -3422,7 +3430,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   fadeDuration: 1
-  firstLoadScene: {fileID: 11400000, guid: 53185b1ebd7f1b74daa56dd826205b12, type: 2}
+  firstLoadScene: {fileID: 11400000, guid: 93fb83331ff5a2447b2e858a59ea3544, type: 2}
   menuScene: {fileID: 11400000, guid: 05761196d9788104baeb272ab8124585, type: 2}
 --- !u!4 &1731329613
 Transform:
