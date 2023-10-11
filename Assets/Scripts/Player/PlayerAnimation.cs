@@ -16,7 +16,7 @@ public class PlayerAnimation : MonoBehaviour
         physicsCheck = GetComponent<PhysicsCheck>();
         playerController = GetComponent<PlayerController>();
     }
-    void Update()
+    void FixedUpdate()
     {
         setAnimation();
     }
