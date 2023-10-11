@@ -160,11 +160,7 @@ public partial class PlayerController : MonoBehaviour, ITakeDamage
         if (isSlide)
             return;
         if (!isCrouch && !wallJump)
-        {
-            var factor = physicsCheck.isGround? 1f : 0.05f;
-            
-            rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x + inputDirection.x * speed * factor, -speed, speed), rb.velocity.y);
-        }
+            rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x + inputDirection.x * speed, -speed, speed ), rb.velocity.y);
 
         //人物翻转
         //方法1 改变transform.scale   
